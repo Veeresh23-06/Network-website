@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checksum Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <span class="brand">⚡ NetExplorer</span>
+    <a href="index.html">Home</a>
+    <a href="checksum.html" class="active">Checksum</a>
+    <a href="devices.html">Device Connections</a>
+    <a href="cables.html">Wired Cables</a>
+    <a href="wireless.html">Wireless</a>
+  </nav>
+
+  <main>
+    <h1>Checksum <span>Calculator</span></h1>
+    <p class="lead">
+      A checksum is a small value calculated from the data and sent along with it.
+      The receiver recalculates it. If the values do not match, the data was corrupted and the packet is dropped.
+    </p>
+
+    <div class="card static">
+      <label for="method">Checksum method</label>
+      <select id="method" onchange="methodChanged()">
+        <option value="internet">Internet checksum (16-bit, used by IP / TCP / UDP)</option>
+        <option value="simple">Simple sum checksum (8-bit, easy to explain)</option>
+      </select>
+      <p id="methodDesc"></p>
+    </div>
+
+    <div class="two-col">
+      <!-- SENDER -->
+      <section class="card static">
+        <h2>📤 Sender</h2>
+        <label for="dataInput">Data to send (any text)</label>
+        <input id="dataInput" type="text" value="HELLO" placeholder="Type some text">
+        <button onclick="calculate()">Calculate checksum</button>
+        <p>Checksum: <strong id="senderChecksum" class="mono">—</strong></p>
+        <pre id="senderSteps" class="steps">Press "Calculate checksum" to see the working.</pre>
+      </section>
+
+      <!-- RECEIVER -->
+      <section class="card static">
+        <h2>📥 Receiver</h2>
+        <label for="recvData">Received data (edit it to simulate corruption)</label>
+        <input id="recvData" type="text" placeholder="Calculate first, or type here">
+        <label for="recvChecksum">Received checksum (hex)</label>
+        <input id="recvChecksum" type="text" placeholder="e.g. 0xB6A3">
+        <button onclick="verify()">Verify</button>
+        <button class="warn" onclick="corrupt()">Corrupt 1 character</button>
+        <button class="secondary" onclick="swapChars()">Swap first 2 characters</button>
+        <div id="verdict" class="verdict">Waiting for verification…</div>
+        <pre id="receiverSteps" class="steps"></pre>
+      </section>
+    </div>
+
+    <h2>How it works</h2>
+    <div class="grid">
+      <div class="card static">
+        <h3>Internet checksum</h3>
+        <ul>
+          <li>Split the data into 16-bit words.</li>
+          <li>Add them all; any carry beyond 16 bits is added back in (one's complement addition).</li>
+          <li>Invert all bits. The result is the checksum.</li>
+          <li>Receiver adds data + checksum. If the result is <b>0xFFFF</b>, the data is valid.</li>
+        </ul>
+      </div>
+      <div class="card static">
+        <h3>Simple sum checksum</h3>
+        <ul>
+          <li>Add the value of every byte.</li>
+          <li>Keep only the remainder after dividing by 256.</li>
+          <li>Receiver repeats the sum and compares it with the received checksum.</li>
+        </ul>
+      </div>
+      <div class="card static">
+        <h3>Try this</h3>
+        <ul>
+          <li>Calculate, then press <b>Corrupt 1 character</b> and Verify.</li>
+          <li>Switch to Simple sum and press <b>Swap first 2 characters</b>: the error is not detected.</li>
+          <li>Do the same with Internet checksum: it is detected.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="muted">
+      Note: real Ethernet frames use a stronger check called CRC-32 (the FCS field),
+      while IP, TCP and UDP headers use the Internet checksum.
+    </p>
+  </main>
+
+  <footer>Network Basics Explorer · Built with HTML, CSS and JavaScript</footer>
+
+  <script src="js/checksum.js"></script>
+</body>
+</html>

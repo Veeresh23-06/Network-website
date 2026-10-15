@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Device Connections</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <span class="brand">⚡ NetExplorer</span>
+    <a href="index.html">Home</a>
+    <a href="checksum.html">Checksum</a>
+    <a href="devices.html" class="active">Device Connections</a>
+    <a href="cables.html">Wired Cables</a>
+    <a href="wireless.html">Wireless</a>
+  </nav>
+
+  <main>
+    <h1>Device <span>Connections</span></h1>
+    <p class="lead">Click any device or any cable line in the diagram to see what it does and how it is connected.</p>
+
+    <div class="legend">
+      <span><i></i>Copper (UTP)</span>
+      <span><i class="fiber"></i>Fiber optic</span>
+      <span><i class="wireless"></i>Wireless (Wi-Fi)</span>
+    </div>
+
+    <div class="diagram">
+      <svg id="netSvg" viewBox="0 0 820 420" role="img" aria-label="Network topology diagram"></svg>
+    </div>
+
+    <div id="infoPanel" class="card static info">
+      <h3>Select something</h3>
+      <p>Click a device or a cable in the diagram above.</p>
+    </div>
+
+    <h2>Connection table</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Connection</th><th>Cable / medium</th><th>Cable type</th><th>Reason</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PC → Switch</td><td>UTP Cat6</td><td>Straight-through</td><td>Different device types</td></tr>
+          <tr><td>Server → Switch</td><td>UTP Cat6</td><td>Straight-through</td><td>Different device types</td></tr>
+          <tr><td>Switch → Router</td><td>UTP Cat6</td><td>Straight-through</td><td>Different device types</td></tr>
+          <tr><td>Switch → Access Point</td><td>UTP Cat6 (PoE optional)</td><td>Straight-through</td><td>Carries data and can power the AP</td></tr>
+          <tr><td>Router → ISP / Internet</td><td>Single-mode fiber</td><td>Fiber optic</td><td>Long distance, very high speed</td></tr>
+          <tr><td>Laptop → Access Point</td><td>Wi-Fi (802.11)</td><td>Wireless</td><td>No cable needed</td></tr>
+          <tr><td>Switch → Switch</td><td>UTP</td><td>Crossover (or straight with Auto-MDIX)</td><td>Same device types</td></tr>
+          <tr><td>PC → Router (setup)</td><td>Console (rollover)</td><td>Console</td><td>Command-line configuration</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>Network Basics Explorer · Built with HTML, CSS and JavaScript</footer>
+
+  <script src="js/devices.js"></script>
+</body>
+</html>

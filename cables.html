@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wired Cables</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <span class="brand">⚡ NetExplorer</span>
+    <a href="index.html">Home</a>
+    <a href="checksum.html">Checksum</a>
+    <a href="devices.html">Device Connections</a>
+    <a href="cables.html" class="active">Wired Cables</a>
+    <a href="wireless.html">Wireless</a>
+  </nav>
+
+  <main>
+    <h1>Wired <span>Cables</span></h1>
+    <p class="lead">The common cables used to connect network devices, with their connectors, distances and typical uses.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🔗</div>
+        <h3>UTP (Unshielded Twisted Pair)</h3>
+        <span class="badge">Cat5e</span><span class="badge">Cat6</span><span class="badge">Cat6a</span>
+        <ul>
+          <li>Connector: RJ-45</li>
+          <li>Max length: 100 m</li>
+          <li>Speed: 1 Gbps (Cat5e/Cat6), 10 Gbps (Cat6a)</li>
+          <li>Use: most common LAN cable</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <h3>STP (Shielded Twisted Pair)</h3>
+        <ul>
+          <li>Connector: RJ-45 (shielded)</li>
+          <li>Max length: 100 m</li>
+          <li>Speed: up to 10 Gbps</li>
+          <li>Use: places with a lot of electrical interference</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon">📺</div>
+        <h3>Coaxial</h3>
+        <ul>
+          <li>Connector: BNC (old Ethernet), F-type (cable TV/internet)</li>
+          <li>Max length: about 185 to 500 m (legacy Ethernet)</li>
+          <li>Speed: 10 Mbps legacy; higher on cable internet</li>
+          <li>Use: cable TV, cable broadband, old bus networks</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon">💡</div>
+        <h3>Fiber optic: single-mode</h3>
+        <ul>
+          <li>Connector: LC, SC</li>
+          <li>Max length: 10 km to 40 km or more</li>
+          <li>Speed: 10 Gbps to 100 Gbps and beyond</li>
+          <li>Use: ISP backbones, long-distance links</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌈</div>
+        <h3>Fiber optic: multi-mode</h3>
+        <ul>
+          <li>Connector: LC, SC, ST</li>
+          <li>Max length: about 300 to 550 m at 10 Gbps</li>
+          <li>Speed: 10 Gbps to 100 Gbps</li>
+          <li>Use: campus and data-center links</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon">🧑‍💻</div>
+        <h3>Console (rollover) cable</h3>
+        <ul>
+          <li>Connector: RJ-45 to DB-9 or USB</li>
+          <li>Length: short (a few metres)</li>
+          <li>Typically light blue</li>
+          <li>Use: command-line setup of routers and switches</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon">⏱️</div>
+        <h3>Serial cable (DCE / DTE)</h3>
+        <ul>
+          <li>Connector: V.35, DB-60 or smart serial</li>
+          <li>Speed: up to about 1.544 Mbps (T1)</li>
+          <li>The DCE side supplies the clock rate</li>
+          <li>Use: WAN links between routers</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon">➡️</div>
+        <h3>Straight-through</h3>
+        <ul>
+          <li>Same wiring standard on both ends (T568B to T568B)</li>
+          <li>Connects <b>different</b> device types</li>
+          <li>Examples: PC to switch, switch to router</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon">🔀</div>
+        <h3>Crossover</h3>
+        <ul>
+          <li>T568A on one end, T568B on the other</li>
+          <li>Connects <b>same</b> device types</li>
+          <li>Examples: PC to PC, switch to switch</li>
+          <li>Modern devices with Auto-MDIX detect this automatically</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Which cable to use where</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Connecting</th><th>Cable</th></tr></thead>
+        <tbody>
+          <tr><td>PC ↔ Switch</td><td>Straight-through</td></tr>
+          <tr><td>Switch ↔ Router</td><td>Straight-through</td></tr>
+          <tr><td>Router ↔ Modem</td><td>Straight-through</td></tr>
+          <tr><td>PC ↔ PC</td><td>Crossover</td></tr>
+          <tr><td>Switch ↔ Switch</td><td>Crossover</td></tr>
+          <tr><td>Router ↔ Router (Ethernet)</td><td>Crossover</td></tr>
+          <tr><td>PC ↔ Router/Switch console port</td><td>Console (rollover)</td></tr>
+          <tr><td>Router ↔ Router (WAN)</td><td>Serial (DCE/DTE)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>RJ-45 wiring standards</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Pin</th><th>T568A</th><th>T568B</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>White/Green</td><td>White/Orange</td></tr>
+          <tr><td>2</td><td>Green</td><td>Orange</td></tr>
+          <tr><td>3</td><td>White/Orange</td><td>White/Green</td></tr>
+          <tr><td>4</td><td>Blue</td><td>Blue</td></tr>
+          <tr><td>5</td><td>White/Blue</td><td>White/Blue</td></tr>
+          <tr><td>6</td><td>Orange</td><td>Green</td></tr>
+          <tr><td>7</td><td>White/Brown</td><td>White/Brown</td></tr>
+          <tr><td>8</td><td>Brown</td><td>Brown</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted">Straight-through = same standard on both ends. Crossover = T568A on one end and T568B on the other.</p>
+  </main>
+
+  <footer>Network Basics Explorer · Built with HTML, CSS and JavaScript</footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wireless Connections</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <span class="brand">⚡ NetExplorer</span>
+    <a href="index.html">Home</a>
+    <a href="checksum.html">Checksum</a>
+    <a href="devices.html">Device Connections</a>
+    <a href="cables.html">Wired Cables</a>
+    <a href="wireless.html" class="active">Wireless</a>
+  </nav>
+
+  <main>
+    <h1>Wireless <span>Connections</span></h1>
+    <p class="lead">Wireless networks use radio waves, microwaves or light instead of cables. Here are the main types and how a Wi-Fi link is made.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 700 300" role="img" aria-label="Wi-Fi laptop, access point and router">
+        <!-- wired link AP to router -->
+        <line x1="395" y1="150" x2="555" y2="150" class="link" />
+        <text x="475" y="140" class="link-label">UTP cable</text>
+
+        <!-- Wi-Fi waves (left of AP) -->
+        <path class="wave w1" d="M298 120 A60 60 0 0 0 298 180" />
+        <path class="wave w2" d="M276 107 A85 85 0 0 0 276 193" />
+        <path class="wave w3" d="M255 95 A110 110 0 0 0 255 205" />
+
+        <!-- Laptop -->
+        <g class="node" transform="translate(100,150)">
+          <rect x="-45" y="-32" width="90" height="64" rx="12" />
+          <text class="icon" y="-4">💻</text>
+          <text class="lbl" y="20">Laptop</text>
+        </g>
+        <!-- Access point -->
+        <g class="node" transform="translate(350,150)">
+          <rect x="-45" y="-32" width="90" height="64" rx="12" />
+          <text class="icon" y="-4">📡</text>
+          <text class="lbl" y="20">Access Point</text>
+        </g>
+        <!-- Router -->
+        <g class="node" transform="translate(600,150)">
+          <rect x="-45" y="-32" width="90" height="64" rx="12" />
+          <text class="icon" y="-4">📶</text>
+          <text class="lbl" y="20">Router</text>
+        </g>
+        <text x="200" y="250" class="link-label">Wi-Fi radio signal (2.4 / 5 GHz)</text>
+      </svg>
+    </div>
+
+    <h2>How a Wi-Fi connection is made</h2>
+    <div class="grid">
+      <div class="card static"><h3>1. Discover</h3><p>The access point broadcasts beacon frames with its network name (SSID). The laptop scans and finds it.</p></div>
+      <div class="card static"><h3>2. Authenticate</h3><p>The laptop proves it is allowed to join, using the Wi-Fi password (WPA2 or WPA3).</p></div>
+      <div class="card static"><h3>3. Associate</h3><p>The laptop joins the access point and agrees on speed and settings.</p></div>
+      <div class="card static"><h3>4. Get an IP address</h3><p>DHCP gives the laptop an IP address, gateway and DNS server.</p></div>
+      <div class="card static"><h3>5. Send data</h3><p>Traffic goes laptop → access point → switch/router → internet.</p></div>
+    </div>
+
+    <h2>Wi-Fi standards (802.11)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Standard</th><th>Name</th><th>Frequency</th><th>Max speed (theoretical)</th></tr></thead>
+        <tbody>
+          <tr><td>802.11b</td><td>-</td><td>2.4 GHz</td><td>11 Mbps</td></tr>
+          <tr><td>802.11a</td><td>-</td><td>5 GHz</td><td>54 Mbps</td></tr>
+          <tr><td>802.11g</td><td>-</td><td>2.4 GHz</td><td>54 Mbps</td></tr>
+          <tr><td>802.11n</td><td>Wi-Fi 4</td><td>2.4 / 5 GHz</td><td>600 Mbps</td></tr>
+          <tr><td>802.11ac</td><td>Wi-Fi 5</td><td>5 GHz</td><td>6.9 Gbps</td></tr>
+          <tr><td>802.11ax</td><td>Wi-Fi 6 / 6E</td><td>2.4 / 5 / 6 GHz</td><td>9.6 Gbps</td></tr>
+          <tr><td>802.11be</td><td>Wi-Fi 7</td><td>2.4 / 5 / 6 GHz</td><td>About 46 Gbps</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Other wireless technologies</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Technology</th><th>Frequency / medium</th><th>Typical range</th><th>Typical use</th></tr></thead>
+        <tbody>
+          <tr><td>Bluetooth</td><td>2.4 GHz</td><td>About 10 m (up to 100 m for Class 1)</td><td>Headphones, keyboards, wearables</td></tr>
+          <tr><td>NFC</td><td>13.56 MHz</td><td>A few centimetres</td><td>Contactless payments, tags</td></tr>
+          <tr><td>Cellular (4G / 5G)</td><td>Licensed radio bands</td><td>Kilometres (cell towers)</td><td>Mobile phones and mobile internet</td></tr>
+          <tr><td>Satellite</td><td>Microwave</td><td>Global</td><td>Remote areas, ships, aircraft, Starlink</td></tr>
+          <tr><td>Microwave link</td><td>Microwave, line of sight</td><td>Tens of kilometres</td><td>Point-to-point backhaul between towers</td></tr>
+          <tr><td>Zigbee</td><td>2.4 GHz (also sub-GHz)</td><td>10 to 100 m</td><td>Smart home, sensors</td></tr>
+          <tr><td>LoRa</td><td>Sub-GHz (868 / 915 MHz)</td><td>Several km</td><td>Low-power IoT, agriculture, metering</td></tr>
+          <tr><td>Infrared</td><td>Light (line of sight)</td><td>A few metres</td><td>Remote controls</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>Network Basics Explorer · Built with HTML, CSS and JavaScript</footer>
+</body>
+</html>
